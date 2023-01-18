@@ -1,0 +1,6 @@
+.env
+poetry.lock
+pyproject.toml
+webex.log
+*__pycache__
+tests/
