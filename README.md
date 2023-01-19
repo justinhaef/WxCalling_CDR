@@ -1,6 +1,6 @@
-# Webex Detailed Call History Records CLI Application
+# Webex Detailed Call History CLI Application
 
-This CLI application has been created for demonstration purposes have how someone can use the [Detailed Call History Records API.](https://developer.webex.com/docs/api/v1/webex-calling-detailed-call-history/get-detailed-call-history)
+This CLI application has been created for demonstration purposes have how someone can use the [Detailed Call History API.](https://developer.webex.com/docs/api/v1/webex-calling-detailed-call-history/get-detailed-call-history)
 
 ## How to setup to use this CLI application
 
