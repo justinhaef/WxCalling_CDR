@@ -12,7 +12,7 @@ This CLI application has been created for demonstration purposes have how someon
 1. run `pip install -r requirements.txt`
 
 ## How to use this CLI application
-1. `python webex auth main`
+1. `python webex auth refresh`
 1. You will be prompted to authenticate to Webex using your browser.  You will also be prompted to agree to the scopes being requested by your integration.  
 1. You then need to copy the `localhost:8080` URL that is provided back in your browser.  Paste that into your command line.
 1. `python webex locations list`

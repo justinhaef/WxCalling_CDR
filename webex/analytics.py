@@ -1,7 +1,6 @@
 import os
 import typer
 import requests
-import json
 from rich import print, print_json
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from dotenv import load_dotenv
@@ -25,6 +24,7 @@ class Analytics():
             'locations': site,
             # 'max': 
         }
+        # this is finally where we make our API call for Analytics
         response = self.session.get(url=self.base_url, params=payload)
         return response.text
 
@@ -49,12 +49,14 @@ def generate(
     end = end_date + 'T' + end_time + ".000Z"
     log.info(f'StartTime: {start} EndTime: {end}')
 
+    # Here we're making a user friendly "spinning" icon.
     with Progress(
         SpinnerColumn(), TextColumn("[progress.description]{task.description}"),
         transient=True,
     ) as progress:
         progress.add_task(description="Generating Detail Call Report...", total=None)
 
+        # Here is where we call the Class to start making API calls. 
         analytics = Analytics(access_token=os.getenv("APP_ACCESS"))
         result = analytics.create_report(start, end, site)
     print(":rocket: [bold green]Congratulations, your report is done![/bold green]")

@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 from requests_oauthlib import OAuth2Session
 import typer
 from rich import print
@@ -14,18 +13,20 @@ app = typer.Typer()
 
 client_id = os.getenv("APP_CLIENTID")
 client_secret = os.getenv("APP_SECRETID")
+# Redirect URL needs to match what is set in the integration page
 redirect_uri = "https://localhost:8080/webex-teams-auth.html"
 
 authorization_base_url = 'https://webexapis.com/v1/authorize'
 token_url = 'https://webexapis.com/v1/access_token/'
 
+# Scopes need to match what is set in the integration page on Developer.webex.com
 scope = [
     "spark-admin:calling_cdr_read",
     "spark-admin:locations_read",
     ]
 
 @app.command()
-def main():
+def refresh():
     webex_auth = OAuth2Session(client_id, scope=scope, redirect_uri=redirect_uri)
 
     authorization_url, state = webex_auth.authorization_url(authorization_base_url)
